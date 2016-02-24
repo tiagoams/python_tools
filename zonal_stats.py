@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
- zonal_stats - Calculates statistics or an array within a region.
-               Reds array from netCDF file and regions from ashapefile.
+ zonal_stats - Calculates statistics of a raster variable within a region.
+               Reads array from netCDF file and regions from ashapefile.
  
  Usage: zonal_stats raster_file variable_name region_file results_file
 
@@ -12,9 +12,8 @@
         results_file - filename of csv file containing the results
 
  example:
-        zonal_stats.py /gpfs/cefas/tiago/SEA_C6920/monthly_data/EUR-L4-SPIM-ATL-v01/analysed_spim_199801.nc SMMean ~/nerc_ssb/c_fluxes/CP2_regions/CP2_lv2.shp results.csv
+        zonal_stats.py analysed_spim_199801.nc SMMean CP2_lv2.shp results.csv
 
-Requires:
 
 """
 
@@ -36,8 +35,6 @@ import shapely.geometry as shply
 import matplotlib.pyplot as plt
 import csv
 
-#import warnings
-#warnings.simplefilter('error', UserWarning)
 
 
 #DEFINITONS
@@ -151,9 +148,6 @@ def zonal_stats(poly,arrayX,arrayY,arrayVal,stats,mask):
 
     results={'mean':mean,'median':median,'std':std,'max':max,'min':min,'count':count}
 
-    #print 'plotting'
-    #plt.imshow(maskedVal)
-    #plt.show()
 
     return results, mask
 
