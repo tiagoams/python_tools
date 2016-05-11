@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-restart_particles - create a spawn file for particle tracking based on the
+restart_particles - create a spawning file for particle tracking based on the
                     end position on a particle tracking run
                     
     restart_particles -i Input_file -o Output_file  Date Time
